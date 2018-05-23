@@ -1,3 +1,4 @@
+//Object Destructuring example
 const person = {
     name: 'Servidor De Nadie',
     age: 32,
@@ -27,3 +28,13 @@ const Book = {
 
 const { name: publisherName = 'Self-Published'} = Book.publisher;
 console.log(publisherName);
+
+//Array Destructuring example
+const address = ['6033 De Zavala RD' , 'San Antonio', 'Texas', '78249'];
+const [,_city, state, ] = address;
+
+console.log(`You're in ${_city}, ${state}`);
+
+const item = ['Coffee (hot)', '$2.00', '$2.50' ,'$2.75'];
+const [itemName, , medium, ] = item;
+console.log(`A medium ${itemName} costs ${medium}`);
