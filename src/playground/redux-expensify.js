@@ -48,8 +48,18 @@ const sortByDate = () => ({
 const sortByAmount = ( sortBy = 'amount') => ({
     type: 'SORT_BY_AMOUNT'
 });
+
 //SET_START_DATE
+const setStartDate = (startDate) => ({
+    type: 'SET_START_DATE',
+    startDate
+});
+
 //SET_END_DATE
+const setEndDate = (endDate) => ({
+    type: 'SET_END_DATE',
+    endDate
+});
 
 //Expenses Reducer
 const expensesReducerDefaultState = [];
@@ -104,6 +114,16 @@ const filtersReducers = (state = filterReducerDefaultState, action) => {
                 ...state,
                 sortBy: 'date'
             }
+        case 'SET_START_DATE':
+            return {
+                ...state,
+                startDate: action.startDate
+            }
+        case 'SET_END_DATE':
+            return {
+                ...state,
+                endDate: action.endDate
+            }
         default:
             return state;
     }
@@ -135,6 +155,11 @@ store.subscribe(() => {
 
 //store.dispatch(sortByAmount());
 //store.dispatch(sortByDate());
+
+store.dispatch(setStartDate(125));
+store.dispatch(setStartDate());
+store.dispatch(setEndDate(1250));
+
 const demoState = {
     expenses: [{
         id: 'dsada',
