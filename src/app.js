@@ -8,6 +8,7 @@ import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import 'react-dates/lib/css/_datepicker.css';
 
 const store = configureStore();
 //store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 1000 }));
