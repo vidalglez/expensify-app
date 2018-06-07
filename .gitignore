@@ -69,7 +69,7 @@ yarn.lock
 bundle.js
 
 #Snapshot from React Test Renderer
-/src/tests/components/__snapshots__
+#/src/tests/components/__snapshots__
 
 #Bundle generated for Production
 node_modules/
