@@ -10,20 +10,20 @@ beforeEach(() => {
     
 });
 */
-test('Viewing 2 expenses totalling $94.34', () => {
+test('Should correctyl render ExpensesSummary with multiple expenses', () => {
     const expensesList = [expenses[0], expenses[1]];
     const expensesTotal = selectExpensesTotal(expensesList);
     const wrapper = shallow(<ExpensesSummary 
         expenseCount={expensesList.length} 
         expensesTotal={expensesTotal} />);
-    expect(wrapper.text()).toBe('Viewing 2 expenses totalling $1,140.00');
+    expect(wrapper).toMatchSnapshot();
 });
 
-test('Viewing 1 expense totalling $94.34', () => {
+test('Should correctyl render ExpensesSummary with single expense', () => {
     const expensesList = [expenses[1]];
     const expensesTotal = selectExpensesTotal(expensesList);
     const wrapper = shallow(<ExpensesSummary 
         expenseCount={expensesList.length} 
         expensesTotal={expensesTotal} />);
-    expect(wrapper.text()).toBe('Viewing 1 expense totalling $1,095.00');
+    expect(wrapper).toMatchSnapshot();
 });

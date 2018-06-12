@@ -5,15 +5,20 @@ import selectExpenses from '../selectors/expenses';
 import selectExpensesTotal from '../selectors/expenses-total';
 
 export const ExpensesSummary = (props) => {
+    const expenseWord = `expense${props.expenseCount === 1 ? '' : 's'}`;
+    const expensesTotal = numeral(props.expensesTotal / 100).format('$0,0.00');
     return (
-        <p>Viewing {props.expenseCount} expense{props.expenseCount > 1 ? 's' : ''} totalling {numeral(props.expensesTotal / 100).format('$0,0.00')}</p>
+        <div>
+            <h1>Viewing {props.expenseCount} {expenseWord} totalling {expensesTotal}</h1>
+        </div>
     );
 };
 
 const mapStateToProps = (state) => {
+    const selectedExpenes = selectExpenses(state.expenses, state.filters);
     return {
-        expenseCount: selectExpenses(state.expenses, state.filters).length,
-        expensesTotal: selectExpensesTotal(selectExpenses(state.expenses, state.filters))
+        expenseCount: selectedExpenes.length,
+        expensesTotal: selectExpensesTotal(selectedExpenes)
     };
 }
 
