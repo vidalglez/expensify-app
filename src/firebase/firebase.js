@@ -1,12 +1,15 @@
 import * as firebase from 'firebase';
 
 const config = {
-
+    
 };
 
 firebase.initializeApp(config);
 
 const database = firebase.database();
+
+export { firebase, database as default };
+
 /*
 database.ref('expenses')
     .once('value')
@@ -25,38 +28,6 @@ database.ref('expenses')
         console.log('This failed, ', e);
     });
 */
-database.ref('expenses').on('child_removed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-}, (e) => {
-    console.log('This failed, ', e);
-});
-
-database.ref('expenses').on('child_changed', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-}, (e) => {
-    console.log('This failed, ', e);
-});
-
-database.ref('expenses').on('child_added', (snapshot) => {
-    console.log(snapshot.key, snapshot.val());
-}, (e) => {
-    console.log('This failed, ', e);
-});
-
-/*
-//The below one is a subscriber
-database.ref('expenses').on('value', (snapshot) => {
-    const expenses = [];
-    snapshot.forEach((childSnapshot) => {
-        expenses.push({
-            id: childSnapshot.key,
-            ...childSnapshot.val()
-        });        
-    });
-    console.log(expenses);
-});
-*/
-
 /*
 database.ref('expenses').push({
     description: 'Gas bill',
@@ -77,6 +48,40 @@ database.ref('expenses').push({
     note: 'Payed thru apple account',
     amount: 1465,
     createdAt: 0
+});
+*/
+
+/*
+database.ref('expenses').on('child_removed', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+}, (e) => {
+    console.log('This failed, ', e);
+});
+
+database.ref('expenses').on('child_changed', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+}, (e) => {
+    console.log('This failed, ', e);
+});
+
+database.ref('expenses').on('child_added', (snapshot) => {
+    console.log(snapshot.key, snapshot.val());
+}, (e) => {
+    console.log('This failed, ', e);
+});
+*/
+
+/*
+//The below one is a subscriber
+database.ref('expenses').on('value', (snapshot) => {
+    const expenses = [];
+    snapshot.forEach((childSnapshot) => {
+        expenses.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+        });        
+    });
+    console.log(expenses);
 });
 */
 
