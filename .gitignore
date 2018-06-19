@@ -74,3 +74,6 @@ bundle.js
 #Bundle generated for Production
 node_modules/
 /public/dist
+
+.env.development
+.env.test
