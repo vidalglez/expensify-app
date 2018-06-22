@@ -112,7 +112,7 @@ test('Should add expense to database and store', (done) => {
   });
 });
 
-test('Should add expense with defaults to database and store', () => {
+test('Should add expense with defaults to database and store', (done) => {
   const store = createMockStore({});
 
   const expenseDefaults = {
@@ -136,6 +136,8 @@ test('Should add expense with defaults to database and store', () => {
   }).then((snapshot) => {
     expect(snapshot.val()).toEqual(expenseDefaults);
     done();
+  }).catch((e) => {
+    console.log('Should add expense with defaults to database and store failed!', e);
   });
 });
 
