@@ -1,5 +1,5 @@
 .button {    
-    background-color: $blue-sea;
+    background: $blue-sea;
     border: none;
     color: $white;
     display: inline-block;
@@ -12,4 +12,8 @@
 
 .button__link {
     background: none;
+}
+
+.button_secondary {    
+    background: #888888;
 }
